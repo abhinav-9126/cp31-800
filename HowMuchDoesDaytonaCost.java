@@ -15,5 +15,5 @@ public class HowMuchDoesDaytonaCost
             if(list.contains(k)) System.out.println("YES");
             else System.out.println("NO");
         }
-}
+ }
 }
