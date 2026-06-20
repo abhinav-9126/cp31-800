@@ -1,36 +1,48 @@
 import java.util.*;
-public class UnitedWeStand
-{
+
+public class Main {
     public static void main(String[] args) {
-    Scanner sc= new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
+
         int t = sc.nextInt();
 
         while (t-- > 0) {
             int n = sc.nextInt();
-            int[] b = new int[n];
+            int[] a = new int[n];
+
+            int max = 0;
 
             for (int i = 0; i < n; i++) {
-                b[i] = sc.nextInt();
+                a[i] = sc.nextInt();
+                max = Math.max(max, a[i]);
             }
 
-            ArrayList<Integer> ans = new ArrayList<>();
+            ArrayList<Integer> b = new ArrayList<>();
+            ArrayList<Integer> c = new ArrayList<>();
 
-            ans.add(b[0]);
-
-            for (int i = 1; i < n; i++) {
-                if (b[i - 1] > b[i]) {
-                    ans.add(1);
+            for (int i = 0; i < n; i++) {
+                if (a[i] == max) {
+                    c.add(a[i]);
+                } else {
+                    b.add(a[i]);
                 }
-                ans.add(b[i]);
             }
 
-            System.out.println(ans.size());
+            if (b.size() == 0) {
+                System.out.println(-1);
+            } else {
+                System.out.println(b.size() + " " + c.size());
 
-            for (int x : ans) {
-                System.out.print(x + " ");
+                for (int x : b) {
+                    System.out.print(x + " ");
+                }
+                System.out.println();
+
+                for (int x : c) {
+                    System.out.print(x + " ");
+                }
+                System.out.println();
             }
-
-            System.out.println();
         }
     }
 }
